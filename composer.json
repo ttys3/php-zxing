@@ -7,6 +7,10 @@
         {
             "name": "Siddharth",
             "email": "dsiddharth2@gmail.com"
+        },
+        {
+            "name": "HuangYeWuDeng",
+            "email": "code@80x86.io"
         }
     ],
     "autoload": {

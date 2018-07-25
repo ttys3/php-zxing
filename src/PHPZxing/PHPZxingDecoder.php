@@ -67,6 +67,8 @@ class PHPZxingDecoder extends PHPZxingBase  {
     // crop=left,top,width,height: Only examine cropped region of input image(s)
     private $crop = false;
     
+    public $unix_env = 'LANG=en_US.UTF-8';
+
     // Constructor for PHPZxingDecoder
     public function __construct($config = array()) {
         if(isset($config['try_harder']) && array_key_exists('try_harder', $config)) {
@@ -83,6 +85,11 @@ class PHPZxingDecoder extends PHPZxingBase  {
 
         if(isset($config['returnAs']) && array_key_exists('returnAs', $config)) {
             $this->returnAs = strval($config['returnAs']);
+        }
+
+        //linux env locale fixup
+        if (PHP_OS == 'Linux') {
+            putenv($this->unix_env);
         }
     }
 
